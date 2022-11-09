@@ -17,12 +17,13 @@ class Account(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.number
+        return str(self.number)
 
 class Credit(models.Model):
     sum = models.IntegerField()
     date = models.DateField(auto_now=True)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
+
 
 class MyModel(models.Model):
     my_field_name = models.CharField(max_length=255, verbose_name='пример поля', help_text='введите строковое значение')
